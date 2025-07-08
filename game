@@ -1,0 +1,63 @@
+public class game {
+    private char[][]board;
+    private char cplayer;
+    
+    public game(){
+        cplayer='x';
+    board=new char[3][3];
+    for(int i=0;i<board.length;i++){
+        for(int j=0;j<board.length;j++){
+            board[i][j]=' ';
+        }}
+    
+}
+   
+  public void print(){
+      for(int i=0;i<3;i++){
+      System.out.print(i+"| ");
+        for(int j=0;j<board.length;j++){
+            System.out.print(board[i][j]+" |");
+  }
+       System.out.println();
+       System.out.println("------------");
+      }
+      
+  }
+  public boolean move(int row,int col,char symbol ){
+  if('x'==board[row][col] ||'o'==board[row][col] )
+      return false ;
+  else {
+      board[row][col]=symbol;
+      cplayer = symbol;
+      return true;
+  }}
+  public boolean win(){
+      for(int r=0;r<board.length;r++){
+          if(board[r][0]==cplayer&&board[r][1]==cplayer && board[r][2]==cplayer )
+      
+        return true;
+      }
+        for(int c = 0; c < board[0].length; c++ ){
+      if(board[0][c]==cplayer &&board[1][c]==cplayer && board[2][c]==cplayer ){
+          return true; 
+      }}          
+      if(board[0][0]==cplayer && board[1][1]==cplayer && board[2][2]==cplayer){
+     return true;
+ }
+ if(board[0][2]==cplayer && board[1][1]==cplayer && board[2][0]==cplayer){
+     return true;
+ }
+ return false;
+  }
+        
+     
+  public void switchp(){
+    if (cplayer=='x')  
+       cplayer='o';
+    else 
+        cplayer='x';
+  }
+  public char getplayer(){
+      return cplayer;
+  }
+}
