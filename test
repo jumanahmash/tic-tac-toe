@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class test {
+    public static void main(String[]args){
+        Scanner input =new Scanner(System.in);
+        game one=new game();
+        
+        while(true){
+         System.out.println("  0   1   2");
+         one.print();
+         
+         
+         System.out.println("current player is " +one.getplayer());
+         System.out.println("enter row and column");
+        int r=input.nextInt();
+        int c=input.nextInt();
+        boolean moved=one.move(r, c, one.getplayer());
+        
+        if (!moved) {
+        System.out.println("Invalid move, try again.");
+        continue;
+    }
+
+
+        if(one.win() ){
+        System.out.println("you win ");
+        one.print();
+        break;
+        }
+        one.switchp();
+        
+    }
+            
+}
+}
